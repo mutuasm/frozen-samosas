@@ -1,5 +1,2 @@
-# Mantine Remix template
-
-Get started with the template by clicking `Use this template` button on the top of the page.
-
-[Documentation](https://mantine.dev/guides/remix/)
+# Frozen Samosas
+A Remix x Mantime site for selling frozen samosas. Orders go to whatsapp. 
