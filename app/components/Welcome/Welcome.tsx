@@ -1,4 +1,4 @@
-import { Card, Image, Text, Group, Button, NumberInput, Select, Container } from '@mantine/core';
+import { Card, Image, Text, Group, Button, NumberInput, Select, Badge } from '@mantine/core';
 import classes from './Welcome.module.css';
 import { useState } from 'react';
 
@@ -8,7 +8,7 @@ const cardItems = [
     imageUrl: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     progress: { value: 80, color: 'blue' },
     details: {
-      main: 'Ksh 1000 per KG',
+      main: 'Ksh 700 for 30 Samosas pack',
       sub: 'Handcrafted to perfection, these frozen delights offer a convenient and delicious solution for quick snacks or appetizers.',
     },
     qty: "pcs",
@@ -18,17 +18,17 @@ const cardItems = [
     imageUrl: 'https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/09/12/21/29-fish-fingers-rex.jpg',
     progress: { value: 65, color: 'green' },
     details: {
-      main: 'Ksh 1000 per KG',
+      main: 'Ksh 1000 per 0.5 kg',
       sub: ' Made from premium quality fish fillets, these golden-brown delights boast a crispy coating that locks in the savory goodness.',
     },
     qty: "1/2 Kgs"
   },
   {
-    title: 'Frozen Chicken Fingers',
+    title: 'Frozen Chicken Nuggets',
     imageUrl: 'https://www.healthyseasonalrecipes.com/wp-content/uploads/2016/01/healthy-baked-chicken-tenders-sq-22-5.jpg',
     progress: { value: 92, color: 'orange' },
     details: {
-      main: 'Ksh 1000 per KG',
+      main: 'Ksh 1000 per 0.5 kg',
       sub: 'Crafted from premium chicken breast, these fingers are a quick and versatile solution for a flavorful meal or snack.',
     },
     qty: "1/2 Kgs"
@@ -70,13 +70,17 @@ export function Welcome() {
       </Card.Section>
 
       <Group justify="space-between" mt="xl">
-        <Text fz="sm" fw={700} className={classes.title}>
+        <Text fz="md" fw={700} className={classes.title}>
           {item.title}
         </Text>
         <Group gap={5}>
-          <Text fz="xs" c="dimmed">
-            {item.details.main}
-          </Text>
+        <Badge
+          size="lg"
+          variant="gradient"
+          gradient={{ from: 'red', to: 'yellow', deg: 90 }}
+        >
+          {item.details.main}
+        </Badge>
           
         </Group>
       </Group>
@@ -97,12 +101,12 @@ export function Welcome() {
         <Group justify="space-between">          
           <NumberInput
               placeholder="Quantity"
-              suffix="Kgs"
-              defaultValue={1}
+              suffix={item.title === "Frozen Samosas" ? " Pack" : " Kgs"}
+              defaultValue={item.title === "Frozen Samosas" ? 1 : 0.5}
               onChange={(value) => handleQuantityChange(value)}
               className={classes.field}
             />
-        <Button variant="filled" onClick={() => handleOrderNow(item.title)} disabled={isOrderButtonDisabled}>Order Now</Button>
+        <Button variant="filled" color="red" onClick={() => handleOrderNow(item.title)} disabled={isOrderButtonDisabled}>Order Now</Button>
 
          </Group> 
       </Card.Section>
