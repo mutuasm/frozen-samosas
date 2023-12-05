@@ -12,7 +12,7 @@ export function Header() {
         src="/logo.png"
         />
         <Group gap={5}>
-        <Button component='a' variant="filled" color="red" href="tel:+254712340622">Order Now</Button>
+        <Button component='a' variant="filled" color="red" href="tel:+254712340622">Call Us</Button>
         </Group>
       </Container>
     </header>
