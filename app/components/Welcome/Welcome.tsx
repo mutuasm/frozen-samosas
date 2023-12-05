@@ -8,7 +8,7 @@ const cardItems = [
     imageUrl: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     progress: { value: 80, color: 'blue' },
     details: {
-      main: 'Ksh 700 for 30 Samosas pack',
+      main: 'Ksh 1000 for 30 Samosas pack',
       sub: 'Handcrafted to perfection, these frozen delights offer a convenient and delicious solution for quick snacks or appetizers.',
     },
     qty: "pcs",
@@ -94,7 +94,6 @@ export function Welcome() {
           className={classes.pref}
           onChange={(value) => handlePrefChange(value)}
           data={['Spicy', 'Non-spicy']}
-          value={preference}
         />
 
 
